@@ -1,0 +1,352 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Play Script · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="example-code.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="play-script.html">
+            
+                <a href="play-script.html">
+            
+                    
+                    Play Script
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="example-code.html">
+            
+                <a href="example-code.html">
+            
+                    
+                    Display Example Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="readme-for-components.html">
+            
+                <a href="readme-for-components.html">
+            
+                    
+                    README for components
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="play-config.html">
+            
+                <a href="play-config.html">
+            
+                    
+                    Play Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Play Script</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="play-script">Play Script</h1>
+<p>A play script is basically where you import your components and write demos. Here&apos;s a simple one:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> {play, useComponents} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-play&apos;</span>
+<span class="hljs-comment">// you don&apos;t need to install vue-play</span>
+<span class="hljs-comment">// it&apos;s installed in vue-play-cli</span>
+<span class="hljs-keyword">import</span> MyButton <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./component/MyButton&apos;</span>
+<span class="hljs-comment">// the component you&apos;d like to play</span>
+
+<span class="hljs-comment">// register your component globally in the app instance</span>
+useComponents({
+  MyButton
+})
+
+play({
+  <span class="hljs-comment">// name your component</span>
+  Button: {
+    <span class="hljs-comment">// describe the behavior you wanna test</span>
+    <span class="hljs-string">&apos;with text&apos;</span>: <span class="hljs-string">&apos;&lt;my-button&gt;text&lt;/my-button&gt;&apos;</span>
+  }
+})
+</code></pre>
+<p>That&apos;s it, the very first play spot for your button component is done!</p>
+<p>Run the command:</p>
+<pre><code class="lang-bash">$ ~/my-project vue-play
+<span class="hljs-comment"># navigate to http://localhost:5000</span>
+<span class="hljs-comment"># and you&apos;ll see you play spot in action!</span>
+</code></pre>
+<h2 id="use-components">Use Components</h2>
+<p>You can register component globally with <code>useComponents</code> helper if you use template syntax, but you can also register them locally:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> MyButton <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./component/MyButton&apos;</span>
+
+Play({
+  Button: {
+    <span class="hljs-string">&apos;with text&apos;</span>: {
+      template: <span class="hljs-string">&apos;&lt;my-button&gt;text&lt;/my-button&gt;&apos;</span>,
+      components: {MyButton}
+    }
+  }
+})
+</code></pre>
+<h2 id="jsx-and-hyperscript">JSX and Hyperscript</h2>
+<p>You can also use JSX or hyperscript if you like:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> MyButton <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./component/MyButton&apos;</span>
+
+Play({
+  Button: {
+    <span class="hljs-comment">// this will be used as render function to form a component</span>
+    <span class="hljs-string">&apos;with text&apos;</span>(h) {
+      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyButton</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">MyButton</span>&gt;</span></span>
+    }
+  }
+})
+</code></pre>
+<p>By using render function, you don&apos;t need to register components manually, which could be more convenient than template syntax.</p>
+<h2 id="full-component">Full Component</h2>
+<p>By default there&apos;re two short hands for template and render function.</p>
+<ul>
+<li>Return a string will be used as template</li>
+<li>Return a function will be used as render function</li>
+</ul>
+<p>But you can pass a full component object, if you really need that :)</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="example-code.html" class="navigation navigation-next " aria-label="Next page: Display Example Code">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Play Script","level":"1.2","depth":1,"next":{"title":"Display Example Code","level":"1.2.1","depth":2,"path":"example-code.md","ref":"example-code.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/egoist/vue-play"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"play-script.md","mtime":"2016-10-10T10:00:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-10T10:15:46.749Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
