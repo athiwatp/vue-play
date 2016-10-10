@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Play Script · GitBook</title>
+        <title>Share Play Spot · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="example-code.html" />
+    <link rel="next" href="showcase.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="custom-webpack-config.html" />
     
 
     </head>
@@ -102,7 +102,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="play-script.html">
+        <li class="chapter " data-level="1.2" data-path="play-script.html">
             
                 <a href="play-script.html">
             
@@ -186,7 +186,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="share-playspot.html">
+        <li class="chapter active" data-level="1.6" data-path="share-playspot.html">
             
                 <a href="share-playspot.html">
             
@@ -242,7 +242,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Play Script</a>
+        <a href="." >Share Play Spot</a>
     </h1>
 </div>
 
@@ -257,67 +257,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="play-script">Play Script</h1>
-<p>A play script is basically where you import your components and write demos. Here&apos;s a simple one:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> {play, useComponents} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-play&apos;</span>
-<span class="hljs-comment">// you don&apos;t need to install vue-play</span>
-<span class="hljs-comment">// it&apos;s installed in vue-play-cli</span>
-<span class="hljs-keyword">import</span> MyButton <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./component/MyButton&apos;</span>
-<span class="hljs-comment">// the component you&apos;d like to play</span>
-
-<span class="hljs-comment">// register your component globally in the app instance</span>
-useComponents({
-  MyButton
-})
-
-play({
-  <span class="hljs-comment">// name your component</span>
-  Button: {
-    <span class="hljs-comment">// describe the behavior you wanna test</span>
-    <span class="hljs-string">&apos;with text&apos;</span>: <span class="hljs-string">&apos;&lt;my-button&gt;text&lt;/my-button&gt;&apos;</span>
-  }
-})
-</code></pre>
-<p>That&apos;s it, the very first play spot for your button component is done!</p>
-<p>Run the command:</p>
-<pre><code class="lang-bash">$ ~/my-project vue-play
-<span class="hljs-comment"># navigate to http://localhost:5000</span>
-<span class="hljs-comment"># and you&apos;ll see the play spot in action!</span>
-</code></pre>
-<h2 id="use-components">Use Components</h2>
-<p>You can register component globally with <code>useComponents</code> helper if you use template syntax, but you can also register them locally:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> MyButton <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./component/MyButton&apos;</span>
-
-Play({
-  Button: {
-    <span class="hljs-string">&apos;with text&apos;</span>: {
-      template: <span class="hljs-string">&apos;&lt;my-button&gt;text&lt;/my-button&gt;&apos;</span>,
-      components: {MyButton}
-    }
-  }
-})
-</code></pre>
-<h2 id="jsx-and-hyperscript">JSX and Hyperscript</h2>
-<p>You can also use JSX or hyperscript if you like:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> MyButton <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./component/MyButton&apos;</span>
-
-Play({
-  Button: {
-    <span class="hljs-comment">// this will be used as render function to form a component</span>
-    <span class="hljs-string">&apos;with text&apos;</span>(h) {
-      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyButton</span>&gt;</span>text<span class="hljs-tag">&lt;/<span class="hljs-name">MyButton</span>&gt;</span></span>
-    }
-  }
-})
-</code></pre>
-<p>By using render function, you don&apos;t need to register components manually, which could be more convenient than template syntax.</p>
-<h2 id="full-component">Full Component</h2>
-<p>By default there&apos;re two short hands for template and render function.</p>
-<ul>
-<li>Return a string will be used as template</li>
-<li>Return a function will be used as render function</li>
-</ul>
-<p>But you can pass a full component object, if you really need that :)</p>
+                                <h1 id="share-play-spot">Share Play Spot</h1>
+<p>After playing with your components, you may want to share it with your team mates and discuss with them.</p>
+<p>Run <code>vue-play -p</code> will build the play spot into <code>./play-dist</code> folder, then you can deploy it to github pages or anywhere you like.</p>
 
                                 
                                 </section>
@@ -345,12 +287,12 @@ Play({
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="custom-webpack-config.html" class="navigation navigation-prev " aria-label="Previous page: Custom Webpack Config">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="example-code.html" class="navigation navigation-next " aria-label="Next page: Display Example Code">
+                <a href="showcase.html" class="navigation navigation-next " aria-label="Next page: Showcase">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -361,7 +303,7 @@ Play({
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Play Script","level":"1.2","depth":1,"next":{"title":"Display Example Code","level":"1.2.1","depth":2,"path":"example-code.md","ref":"example-code.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github","edit-link"],"pluginsConfig":{"github":{"url":"https://github.com/egoist/vue-play"},"edit-link":{"label":"Edit This Page","base":"https://github.com/egoist/vue-play/tree/master/docs"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"play-script.md","mtime":"2016-10-10T10:36:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-10T12:32:40.239Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Share Play Spot","level":"1.6","depth":1,"next":{"title":"Showcase","level":"1.7","depth":1,"path":"showcase.md","ref":"showcase.md","articles":[]},"previous":{"title":"Custom Webpack Config","level":"1.5","depth":1,"path":"custom-webpack-config.md","ref":"custom-webpack-config.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github","edit-link"],"pluginsConfig":{"github":{"url":"https://github.com/egoist/vue-play"},"edit-link":{"label":"Edit This Page","base":"https://github.com/egoist/vue-play/tree/master/docs"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"share-playspot.md","mtime":"2016-10-10T11:16:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-10T12:32:40.239Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
